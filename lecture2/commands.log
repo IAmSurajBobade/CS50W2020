@@ -1,0 +1,32 @@
+# Clone repository
+git clone <repository-url>
+
+# Check status of the repository
+git status
+
+# Add file to the repository
+git add <file-name>
+
+# commit changes to the file
+git commit -m "commit-message"
+
+# push changes to the server repository
+git push
+
+# Check if server repository has new changes
+git fetch
+
+# pull changes from server repository
+git pull
+
+# Get commit history
+git log
+
+# Undo commit changes after known commit
+git rest --hard <commit-hash>
+
+# Create new branch
+git checkout -b <new-branch-name>
+
+# Change branch
+git checkout <branch-name>
