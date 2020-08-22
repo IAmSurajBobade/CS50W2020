@@ -1,11 +1,5 @@
-SQL types
-TEXT, NUMRIC, INTEGER, REAL, BLOB
-
-MySQL types
-CHAR(size), VARCHAR(size), SMALLINT, INT, BIGINT, FLOAT, DOUBLE
-
-Constraints:
-CHECK,DEFAULT
+Microsoft Windows [Version 10.0.19041.450]
+(c) 2020 Microsoft Corporation. All rights reserved.
 
 C:\Users\Admin>sqlite3
 SQLite version 3.33.0 2020-08-14 13:23:32
@@ -89,5 +83,15 @@ id  origin    dest      duration
 --  --------  --------  --------
 3   Shanghai  Paris     760
 4   Istanbul  Tokyo     700
+7   Lima      New York  455
+sqlite> SELECT * FROM flights;
+id  origin    dest      duration
+--  --------  --------  --------
+1   New Youk  London    415
+2   New York  London    415
+3   Shanghai  Paris     760
+4   Istanbul  Tokyo     700
+5   New York  Paris     435
+6   Moscow    Paris     245
 7   Lima      New York  455
 sqlite>
