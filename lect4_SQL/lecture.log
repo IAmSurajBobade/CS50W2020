@@ -1,0 +1,93 @@
+SQL types
+TEXT, NUMRIC, INTEGER, REAL, BLOB
+
+MySQL types
+CHAR(size), VARCHAR(size), SMALLINT, INT, BIGINT, FLOAT, DOUBLE
+
+Constraints:
+CHECK,DEFAULT
+
+C:\Users\Admin>sqlite3
+SQLite version 3.33.0 2020-08-14 13:23:32
+Enter ".help" for usage hints.
+Connected to a transient in-memory database.
+Use ".open FILENAME" to reopen on a persistent database.
+sqlite>
+
+C:\Users\Admin>sqlite3 flights.sql
+SQLite version 3.33.0 2020-08-14 13:23:32
+Enter ".help" for usage hints.
+sqlite> CREATE TABLE flights (
+   ...>         id INTEGER PRIMARY KEY AUTOINCREMENT,
+   ...>         origin TEXT NOT NULL,
+   ...>         dest TEXT NOT NULL,
+   ...>         duration INTEGER NOT NULL
+   ...> );
+sqlite> .tables
+flights
+sqlite> SELECT * FROM flights
+   ...> ;
+sqlite> INSERT INTO flights (origin, dest, duration) VALUES ("New Youk", "London", 415);
+sqlite> SELECT * FROM flights;
+1|New Youk|London|415
+sqlite> INSERT INTO flights (origin, dest, duration) VALUES ("New York", "London", 415);
+sqlite> INSERT INTO flights (origin, dest, duration) VALUES ("Shanghai", "Paris", 760);
+sqlite> INSERT INTO flights (origin, dest, duration) VALUES ("Istanbul", "Tokyo", 700);
+sqlite> INSERT INTO flights (origin, dest, duration) VALUES ("New York", "Paris", 435);
+sqlite> INSERT INTO flights (origin, dest, duration) VALUES ("Moscow", "Paris", 245);
+sqlite> INSERT INTO flights (origin, dest, duration) VALUES ("Lima", "New York", 455);
+sqlite> SELECT * FROM flights;
+1|New Youk|London|415
+2|New York|London|415
+3|Shanghai|Paris|760
+4|Istanbul|Tokyo|700
+5|New York|Paris|435
+6|Moscow|Paris|245
+7|Lima|New York|455
+sqlite> .mode columns
+sqlite> .headers yes
+sqlite> SELECT * FROM flights;
+id  origin    dest      duration
+--  --------  --------  --------
+1   New Youk  London    415
+2   New York  London    415
+3   Shanghai  Paris     760
+4   Istanbul  Tokyo     700
+5   New York  Paris     435
+6   Moscow    Paris     245
+7   Lima      New York  455
+sqlite> SELECT * from flights WHERE origin = "New York"
+   ...> ;
+id  origin    dest    duration
+--  --------  ------  --------
+2   New York  London  415
+5   New York  Paris   435
+sqlite> SELECT * from flights WHERE duration > 500;
+id  origin    dest   duration
+--  --------  -----  --------
+3   Shanghai  Paris  760
+4   Istanbul  Tokyo  700
+sqlite> SELECT * from flights WHERE duration > 500 AND dest = "Paris";
+id  origin    dest   duration
+--  --------  -----  --------
+3   Shanghai  Paris  760
+sqlite> SELECT * from flights WHERE duration > 500 OR dest = "Paris";
+id  origin    dest   duration
+--  --------  -----  --------
+3   Shanghai  Paris  760
+4   Istanbul  Tokyo  700
+5   New York  Paris  435
+6   Moscow    Paris  245
+sqlite> SELECT * from flights WHERE origin IN ("New York", "Moscow");
+id  origin    dest    duration
+--  --------  ------  --------
+2   New York  London  415
+5   New York  Paris   435
+6   Moscow    Paris   245
+sqlite> SELECT * from flights WHERE origin LIKE "%a%";
+id  origin    dest      duration
+--  --------  --------  --------
+3   Shanghai  Paris     760
+4   Istanbul  Tokyo     700
+7   Lima      New York  455
+sqlite>
