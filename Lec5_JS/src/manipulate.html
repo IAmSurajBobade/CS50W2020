@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+      function changeMsg() {
+        const msgText = document.querySelector('h1');
+        if (msgText.innerHTML === 'Hello!') {
+          msgText.innerHTML = 'Hello from the other side!';
+        }
+        else {
+          msgText.innerHTML = 'Hello!';
+        }
+      }
+
+    </script>
+    <title>Change Msg!</title>
+  </head>
+
+  <body>
+    <h1>Hello!</h1>
+    <button onclick="changeMsg()">Toggle msg</button>
+  </body>
+
+</html>

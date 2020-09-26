@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+      function hello() {
+        alert('Hello, world!');
+      }
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelector('form').onsubmit = function () {
+          const name = document.querySelector('#name').value;
+          alert(`Hello ${name}`);
+        };
+      });
+    </script>
+    <title>Hello!</title>
+  </head>
+
+  <body>
+    <h1>Hello!</h1>
+    <button onclick="hello()">click here</button>
+    <form>
+      <input autofocus id="name" placeholder="name" type="text">
+      <input type="submit">
+    </form>
+  </body>
+
+</html>
